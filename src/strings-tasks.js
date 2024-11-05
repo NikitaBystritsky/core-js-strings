@@ -469,7 +469,12 @@ function extractEmails(str) {
  *
  */
 function encodeToRot13(str) {
-  
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const rot13Alphabet = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  return str.replace(
+    /[a-z]/gi,
+    (elem) => rot13Alphabet[alphabet.indexOf(elem)]
+  );
 }
 
 /**
