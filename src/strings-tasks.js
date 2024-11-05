@@ -146,8 +146,11 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  return str.indexOf(value) > -1
+    ? str.substring(0, str.indexOf(value)) +
+        str.substring(str.indexOf(value) + value.length, str.length)
+    : str;
 }
 
 /**
@@ -162,8 +165,11 @@ function removeFirstOccurrences(/* str, value */) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  return str.lastIndexOf(value) > -1
+    ? str.substring(0, str.lastIndexOf(value)) +
+        str.substring(str.lastIndexOf(value) + value.length, str.length)
+    : str;
 }
 
 /**
@@ -319,8 +325,10 @@ function countVowels(str) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const inLowerCase = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const reversed = inLowerCase.split('').reverse().join('');
+  return reversed === inLowerCase;
 }
 
 /**
